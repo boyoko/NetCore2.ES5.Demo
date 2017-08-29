@@ -14,7 +14,8 @@ namespace NetCore2.ES5.Common
         //public virtual DbSet<SCQ_CPATS> SCQ_CPATS { get; set; }
         public virtual DbSet<SD_CPATS> SD_CPATS { get; set; }
         public virtual DbSet<SD_CPAT_DETAIL> SD_CPAT_DETAIL { get; set; }
-        //public virtual DbSet<CPAT_CHECK_RECORD> CPAT_CHECK_RECORD { get; set; }
+        public virtual DbSet<CPAT_CHECK_RECORD> CPAT_CHECK_RECORD { get; set; }
+        public virtual DbSet<DP_DICT_DETAIL> DP_DICT_DETAIL { get; set; }
 
         public NetCoreDbContext()
             : base()
@@ -55,10 +56,16 @@ namespace NetCore2.ES5.Common
                 entity.HasKey(e => e.DETAIL_ID);
             });
 
-            //modelBuilder.Entity<CPAT_CHECK_RECORD>(entity =>
-            //{
-            //    entity.HasKey(e => e.CHECK_ID);
-            //});
+            modelBuilder.Entity<CPAT_CHECK_RECORD>(entity =>
+            {
+                entity.HasKey(e => e.CHECK_ID);
+            });
+
+            modelBuilder.Entity<DP_DICT_DETAIL>(entity =>
+            {
+                //复合主键
+                entity.HasKey(e => new { e.DP_CLASS_CODE, e.DP_ITEM_CODE });
+            });
 
         }
     }

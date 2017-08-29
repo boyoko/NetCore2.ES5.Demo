@@ -16,4 +16,10 @@
     <ProjectReference Include="..\NetCore2.ES5.Common\NetCore2.ES5.Common.csproj" />
   </ItemGroup>
 
+  <ItemGroup>
+    <None Update="appsettings.json">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+  </ItemGroup>
+
 </Project>

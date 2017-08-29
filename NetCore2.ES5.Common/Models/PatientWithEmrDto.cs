@@ -29,5 +29,10 @@ namespace NetCore2.ES5.Common.Models
         [JsonProperty("emr_record_list")]
         [Nested]
         public List<CPAT_EMR_RECORD> Emr_Record_List { get; set; }
+
+        [JsonProperty("check_record_list")]
+        [Nested]
+        public List<CPAT_CHECK_RECORD> Check_Record_List { get; set; }
+
     }
 }
