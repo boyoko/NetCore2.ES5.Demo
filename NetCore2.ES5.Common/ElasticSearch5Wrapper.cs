@@ -47,7 +47,10 @@ namespace NetCore2.ES5.Common
         public static ElasticClient GetInstance(IOptions<Es5Settings> options)
         {
             var connectionPool = new SniffingConnectionPool(GetUris(options));
-            var settings = new ConnectionSettings(connectionPool);
+            //var settings = new ConnectionSettings(connectionPool);
+            var settings = new ConnectionSettings(connectionPool)
+                                .ServerCertificateValidationCallback((sender, cert, chain, errors)=>true)
+                                .BasicAuthentication("admin","admin");
             if (_client == null)
             {
                 lock (objLock)

@@ -48,7 +48,7 @@ namespace NetCore2.ES5.SyncDataConsole.Demo
                 });
 
                 //同步数据
-                SetData3();
+                SetData2();
 
                 Console.WriteLine("数据同步成功！");
                 Console.Read();
@@ -265,7 +265,7 @@ namespace NetCore2.ES5.SyncDataConsole.Demo
                                                                   select c).ToList()
                                         }
                                    )
-                                   //.Take(10)
+                                   .Take(100)
                                    .ToList();
 
                     //foreach (var p in patientList)
